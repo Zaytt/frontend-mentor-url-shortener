@@ -18,7 +18,7 @@ const cards = [
 
 const Details = () => {
   return (
-    <div className="bg-porcelain flex flex-col items-center justify-start w-full pt-[203px] pb-[164px]">
+    <div className="bg-porcelain flex flex-col items-center justify-start w-full pt-[120px] pb-[164px] relative top-[-84px]">
       <div className="text-center flex flex-col gap-y-[18px] pb-[144px]">
         <h2 className="lg:text-[40px] text-[28px] font-bold lg:leading-[48px] leading-[48px] lg:tracking-[-1px] tracking-[-0.7px]">
           Advanced Statistics

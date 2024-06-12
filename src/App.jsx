@@ -12,10 +12,8 @@ function App() {
       <section className="bg-white pb-[152px] overflow-hidden">
         <Hero />
       </section>
-      <section className="relative top-[84px]">
+      <section className="bg-porcelain relative">
         <ShortBar />
-      </section>
-      <section className="bg-porcelain">
         <Details />
       </section>
       <section className="bg-tuna bg-[url('/images/bg-boost-mobile.svg')] lg:bg-[url('/images/bg-boost-desktop.svg')] bg-no-repeat bg-cover">

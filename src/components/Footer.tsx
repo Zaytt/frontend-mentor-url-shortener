@@ -21,7 +21,7 @@ const Footer = () => {
           <a className="cursor-pointer hover:text-primary">Analytics</a>
         </div>
         <div className="flex flex-col lg:justify-between items-center lg:items-start  gap-y-[10px]">
-          <div className="text-white mb-[22px] font-bold tracking-[-0.25px] text-[16px]">
+          <div className="text-white mb-[12px] font-bold tracking-[-0.25px] text-[16px]">
             Resources
           </div>
           <a className="cursor-pointer hover:text-primary">Blog</a>
@@ -29,7 +29,7 @@ const Footer = () => {
           <a className="cursor-pointer hover:text-primary">Support</a>
         </div>
         <div className="flex flex-col lg:justify-between items-center lg:items-start  gap-y-[10px]">
-          <div className="text-white mb-[22px] font-bold tracking-[-0.25px] text-[16px]">
+          <div className="text-white mb-[12px] font-bold tracking-[-0.25px] text-[16px]">
             Company
           </div>
           <a className="cursor-pointer hover:text-primary">About</a>

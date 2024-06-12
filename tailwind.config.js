@@ -13,6 +13,7 @@ export default {
         primary: '#2BD0D0',
         faded: '#9AE3E3',
         dark: '#232127',
+        error: '#F46363',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],

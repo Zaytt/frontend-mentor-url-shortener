@@ -49,7 +49,7 @@ const Navbar = () => {
         </div>
         <div className="lg:hidden">
           <button id="hamburger" onClick={handleToggle}>
-            <Logo className="fill-charcoal mr-9" />{' '}
+            <img src="/images/icon-hamburger.svg" />
           </button>
         </div>
       </div>
