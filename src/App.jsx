@@ -26,7 +26,7 @@ function App() {
 
   return (
     <main className="w-full flex justify-center *:px-[24px] *:lg:px-[124px] *:xl:px-[165px] flex-col items-center *:w-full *:flex *:flex-col *:justify-start *:items-center">
-      <section className="bg-white pb-[152px] overflow-hidden">
+      <section className="bg-white pb-[223px] overflow-hidden">
         <Hero />
       </section>
       <section className="bg-porcelain relative">

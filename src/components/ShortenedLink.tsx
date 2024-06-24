@@ -6,18 +6,17 @@ interface ShortenedLinkProps {
 }
 const ShortenedLink: React.FC<ShortenedLinkProps> = ({ link }) => {
   return (
-    <div className="bg-white py-4 pl-8 pr-6 flex justify-between rounded-[5px]">
-      <span className="text-charcoal text-[20px] leading-[36px] tracking-[0.15px]">
+    <div className="bg-white py-4 pl-8 pr-6 flex lg:flex-row flex-col justify-between rounded-[5px]">
+      <span className="text-charcoal text-[20px] leading-[36px] tracking-[0.15px] mb-[6px] lg:mb-0">
         {link.original}
       </span>
-      <div>
-        <span className="text-primary text-[20px] leading-[36px] tracking-[0.15px]">
-          {link.short}
-        </span>
-        <button className="w-[103px] h-[40px] bg-primary hover:bg-faded ml-8 rounded-[5px] text-white">
-          Copy
-        </button>
-      </div>
+      <span className="lg:hidden border-grey border-b-[1px] ml-[-32px] mr-[-24px] opacity-25"></span>
+      <span className="text-primary text-[20px] leading-[36px] tracking-[0.15px] lg:ml-auto mb-[8px] lg:mb-0 mt-[6px] lg:mt-0">
+        {link.short}
+      </span>
+      <button className="w-full lg:w-[103px] h-[40px] bg-primary hover:bg-faded lg:ml-8 rounded-[5px] text-white">
+        Copy
+      </button>
     </div>
   )
 }

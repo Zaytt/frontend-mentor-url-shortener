@@ -20,6 +20,7 @@ const Hero = () => {
           <img
             src="/images/illustration-working.svg"
             className="w-full h-full object-cover object-left-bottom"
+            alt="Working Guy Illustration"
           ></img>
         </div>
       </div>
