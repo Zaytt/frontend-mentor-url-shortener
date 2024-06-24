@@ -31,7 +31,12 @@ const Details = () => {
       <div className="flex lg:flex-row flex-col xl:gap-x-[30px] lg:gap-x-[16px] gap-y-[48px] relative items-center justify-center">
         <div className="absolute lg:w-full w-[8px] lg:h-[8px] h-full bg-primary lg:top-[50%] lg:left-0 left-[158x]"></div>
         {cards.map((card, index) => (
-          <BenefitCard title={card.title} text={card.text} index={index} />
+          <BenefitCard
+            title={card.title}
+            text={card.text}
+            index={index}
+            key={index}
+          />
         ))}
       </div>
     </div>

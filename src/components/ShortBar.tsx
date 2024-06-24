@@ -8,6 +8,8 @@ const urlPattern =
 const errors = {
   empty: 'Please add a link',
   noUrl: 'Please enter a valid url',
+  already: 'URL already shortened',
+  limit: 'Daily limit reached. Retry in 24 hours.',
 }
 const ShortBar = () => {
   const addLink = useStore((state) => state.addLink)
@@ -31,7 +33,16 @@ const ShortBar = () => {
       setHasError('noUrl')
       return
     }
-    addLink({ original: link, short: link })
+    if (links.find((existingLink) => existingLink.original === link)) {
+      setHasError('already')
+      return
+    }
+    if (links.length >= 10) {
+      setHasError('limit')
+      return
+    }
+
+    addLink(link)
   }
 
   return (
