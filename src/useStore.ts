@@ -8,16 +8,19 @@ export interface Link {
 
 interface LinksState {
   links: Link[]
+  copiedUrl: string
   loadLinks: () => void
   addLink: (link: string) => void
   removeLink: (index: number) => void
   clearLinks: () => void
+  setCopiedUrl: (url: string) => void
 }
 
 const url = 'https://spoo.me/'
 
 const useStore = create<LinksState>((set) => ({
   links: [],
+  copiedUrl: '',
   loadLinks: async () => {
     const userId = getUserLocalStorage()
     const res = await fetch(`${url}/user/${userId}`, {
@@ -67,6 +70,7 @@ const useStore = create<LinksState>((set) => ({
       links: state.links.filter((_, i) => i !== index),
     })),
   clearLinks: () => set({ links: [] }),
+  setCopiedUrl: (url) => set({ copiedUrl: url }),
 }))
 
 export default useStore

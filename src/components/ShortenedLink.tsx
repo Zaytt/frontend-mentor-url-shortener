@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
-import { Link } from '../useStore'
+import React, { useEffect, useState } from 'react'
+import useStore, { Link } from '../useStore'
 
 interface ShortenedLinkProps {
   link: Link
 }
 const ShortenedLink: React.FC<ShortenedLinkProps> = ({ link }) => {
-  const [copied, setCopied] = useState(false)
+  const [copiedUrl, setCopiedUrl] = useStore((state) => [
+    state.copiedUrl,
+    state.setCopiedUrl,
+  ])
+
+  const copied = copiedUrl === link.short
 
   const handleCopy = () => {
     navigator.clipboard.writeText(link.short)
-    setCopied(true)
+    setCopiedUrl(link.short)
   }
 
   return (
@@ -22,7 +27,7 @@ const ShortenedLink: React.FC<ShortenedLinkProps> = ({ link }) => {
         {link.short}
       </span>
       <button
-        className={`w-full lg:w-[103px] h-[40px]  ${
+        className={`w-full lg:w-[103px] h-[40px] ${
           !copied && 'hover:bg-faded'
         } lg:ml-8 rounded-[5px] text-white ${
           copied ? 'bg-purple' : 'bg-primary'
