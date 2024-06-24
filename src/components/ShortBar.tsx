@@ -29,7 +29,6 @@ const ShortBar = () => {
       return
     }
     if (!link.match(urlPattern)) {
-      console.log(link.match(urlPattern))
       setHasError('noUrl')
       return
     }

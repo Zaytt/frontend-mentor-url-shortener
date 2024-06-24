@@ -14,7 +14,7 @@ interface LinksState {
   clearLinks: () => void
 }
 
-const url = 'http://localhost:5000/api/url'
+const url = 'https://spoo.me/'
 
 const useStore = create<LinksState>((set) => ({
   links: [],
@@ -43,19 +43,19 @@ const useStore = create<LinksState>((set) => ({
   },
   addLink: async (originalUrl: string) => {
     const userId = getUserLocalStorage()
-    const res = await fetch(`${url}/shorten`, {
+    const res = await fetch(`${url}`, {
       method: 'POST',
-      mode: 'cors',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Accept: 'application/json',
       },
-      body: JSON.stringify({ originalUrl, userId }),
+      body: new URLSearchParams({ url: originalUrl }),
     })
 
     const response = await res.json()
     const shortLink = {
-      original: response.originalUrl,
-      short: `https://short.ly/${response.shortUrl}`,
+      original: originalUrl,
+      short: `${response.short_url}`,
     }
 
     set((state) => ({

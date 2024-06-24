@@ -13,16 +13,16 @@ import {
 import useStore from './useStore'
 
 function App() {
-  const loadLinks = useStore((state) => state.loadLinks)
-  useEffect(() => {
-    const userId = getUserLocalStorage()
-    if (!userId) {
-      const newUserId = uuidv4()
-      setUserLocalStorage(newUserId)
-    } else {
-      loadLinks()
-    }
-  }, [])
+  // const loadLinks = useStore((state) => state.loadLinks)
+  // useEffect(() => {
+  //   const userId = getUserLocalStorage()
+  //   if (!userId) {
+  //     const newUserId = uuidv4()
+  //     setUserLocalStorage(newUserId)
+  //   } else {
+  //     loadLinks()
+  //   }
+  // }, [])
 
   return (
     <main className="w-full flex justify-center *:px-[24px] *:lg:px-[124px] *:xl:px-[165px] flex-col items-center *:w-full *:flex *:flex-col *:justify-start *:items-center">
