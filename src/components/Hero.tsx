@@ -7,7 +7,7 @@ const Hero = () => {
     <div className="bg-white flex flex-col items-center justify-start w-full ">
       <Navbar />
       <div className="mt-8 lg:mt-[140px] flex lg:justify-start flex-col-reverse lg:flex-row sm:items-center items-start w-full bg-transparent gap-x-[102px] ">
-        <div className="lg:max-w-[564px] mt-9 lg:mt-0 flex flex-col items-center lg:items-start">
+        <div className="lg:max-w-[570px] mt-9 lg:mt-0 flex flex-col items-center lg:items-start">
           <h1 className="text-center lg:text-left text-[42px] lg:text-[72px] xl:text-[80px] text-charcoal font-bold lg:tracking-[-2px] tracking-[-1.05px] leading-[48px] lg:leading-[90px]">
             More than just shorter links
           </h1>
