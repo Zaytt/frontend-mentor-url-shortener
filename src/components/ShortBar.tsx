@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useStore from '../useStore'
 import ShortenedLink from './ShortenedLink'
+import LoadingSpinner from './icons/LoadingSpinner'
 
 const urlPattern =
   /[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/gi
@@ -16,12 +17,14 @@ const ShortBar = () => {
   const links = useStore((state) => state.links)
   const [link, setLink] = useState('')
   const [hasError, setHasError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setLink(e.currentTarget.value)
     setHasError('')
   }
 
-  const handleShort = (e: React.FormEvent) => {
+  const handleShort = async (e: React.FormEvent) => {
     e.preventDefault()
 
     if (!link) {
@@ -41,7 +44,9 @@ const ShortBar = () => {
       return
     }
 
-    addLink(link)
+    setIsLoading(true)
+    await addLink(link)
+    setIsLoading(false)
   }
 
   return (
@@ -72,10 +77,10 @@ const ShortBar = () => {
             )}
           </div>
           <button
-            className="bg-primary hover:bg-faded text-white font-bold text-[20px] w-[100%] lg:w-[188px] h-[64px] rounded-[10px]"
+            className="bg-primary hover:bg-faded text-white font-bold text-[20px] w-[100%] lg:w-[188px] h-[64px] rounded-[10px] flex justify-center items-center"
             onClick={handleShort}
           >
-            Shorten It!
+            {isLoading ? <LoadingSpinner /> : 'Shorten It!'}
           </button>
         </form>
       </div>

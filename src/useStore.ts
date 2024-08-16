@@ -55,15 +55,19 @@ const useStore = create<LinksState>((set) => ({
       body: new URLSearchParams({ url: originalUrl }),
     })
 
-    const response = await res.json()
-    const shortLink = {
-      original: originalUrl,
-      short: `${response.short_url}`,
+    if (res.ok) {
+      const response = await res.json()
+      const shortLink = {
+        original: originalUrl,
+        short: `${response.short_url}`,
+      }
+
+      set((state) => ({
+        links: [...state.links, shortLink],
+      }))
     }
 
-    set((state) => ({
-      links: [...state.links, shortLink],
-    }))
+    return res.ok
   },
   removeLink: (index: number) =>
     set((state) => ({
